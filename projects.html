@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Skills - My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">Bruce Kipkogei</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects & Skills</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" style="margin-top: 20px;">
+            <a href="index.html" class="btn home-back-button">&larr; Home</a>
+        </div>
+        
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span>HTML5 / Semantic Markup</span>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;">90%</div></div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <span>JavaScript </span>
+                        <div class="progress-bar"><div class="progress" style="width: 70%;">70%</div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Git & GitHub Version Control</span>
+                        <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Responsive Web Design</span>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;">85%</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+                    <button class="filter-btn" onclick="filterProjects('web')">Web Dev</button>
+                    <button class="filter-btn" onclick="filterProjects('school')">School Work</button>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive personal portfolio website built with semantic HTML5 and external CSS to showcase professional milestones.</p>
+                        <p class="tech-used"><strong>Tech:</strong> HTML5, CSS3, Git, Vercel</p>
+                        <a href="https://github.com/bruce-collab-cell/my-portfolio" target="_blank" class="btn">View Repository</a>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <h3>Interactive Landing Page</h3>
+                        <p>A dynamic web page incorporating modern JavaScript event handlers.</p>
+                        <p class="tech-used"><strong>Tech:</strong> HTML5, CSS3, JavaScript</p>
+                        <a href="#" class="btn coming-soon">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>Services I Offer</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Basic Website Design</h3>
+                        <p>Creating clean, responsive, and mobile-friendly static websites tailored to personal brands or small business needs.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>HTML/CSS Tutoring</h3>
+                        <p>Assisting beginner students with understanding core web standards, semantic markup, and stylesheet design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form id="contactForm" onsubmit="return validateForm(event)">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p id="formFeedback" class="feedback-msg"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bruce Kipkogei | KCA University</p>
+    </footer>
+
+    
+    <script>
+        
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+    
+        function validateForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const feedback = document.getElementById('formFeedback');
+
+            
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (name === "" || email === "" || message === "") {
+                feedback.style.color = "red";
+                feedback.textContent = "Please fill in all required fields.";
+                return false;
+            }
+
+            if (!email.match(emailPattern)) {
+                feedback.style.color = "red";
+                feedback.textContent = "Please enter a valid email address.";
+                return false;
+            }
+
+            feedback.style.color = "green";
+            feedback.textContent = "Thank you! Your message has been successfully validated.";
+            
+            
+            document.getElementById('contactForm').reset();
+            return true;
+        }
+    </script>
+</body>
+</html>

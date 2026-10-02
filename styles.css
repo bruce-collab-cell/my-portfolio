@@ -236,3 +236,132 @@ footer {
         text-align: left;
     }
 }
+
+.skills-section,
+.projects-section,
+.services-section,
+.contact-section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill-item span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+}
+
+.progress {
+    background: #007bff;
+    color: white;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 12px;
+    line-height: 20px;
+    height: 100%;
+}
+
+.filter-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.filter-btn.active {
+    background: #007bff;
+    color: white;
+}
+
+.projects-grid,
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card,
+.service-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.tech-used {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn.coming-soon {
+    background: #6c757d;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.feedback-msg {
+    margin-top: 10px;
+    font-weight: bold;
+}
